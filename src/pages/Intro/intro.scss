@@ -1,0 +1,126 @@
+.intro {
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  nav {
+    background: transparent;
+    display: flex;
+    padding: 1.7rem 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100vw;
+    z-index: 100;
+    #logo {
+      width: 8rem;
+      margin-right: auto;
+    }
+    .select {
+      background: transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      border: 1px solid rgb(226, 226, 226);
+      padding: 0.4rem 0.4rem;
+      border-radius: 0.2rem;
+      select {
+        font-size: 1rem;
+        outline: none;
+        border: none;
+        background: transparent;
+        color: white;
+        option {
+          background: #000;
+        }
+      }
+    }
+    #signin {
+      border-radius: 0.2rem;
+      border: none;
+      background-color: #e50914;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      color: white;
+    }
+  }
+  #hero_img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
+  }
+  .transparent {
+    position: absolute;
+    top: 0;
+    height: inherit;
+    width: inherit;
+    background: transparent;
+    background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.7) 0,
+      transparent 10%,
+      rgba(0, 0, 0, 0.7) 70%
+    );
+    z-index: -2;
+  }
+  main {
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    text-align: center;
+    h1 {
+      max-width: 600px;
+    }
+    .input {
+      display: flex;
+      input {
+        height: 3.2rem;
+        font-size: 1.2rem;
+        width: 50%;
+        padding: 0 0.4rem;
+        outline: none;
+      }
+      button {
+        height: 3.2rem;
+        background: red;
+        display: inline-flex;
+        align-items: center;
+        color: white;
+        gap: 0.3rem;
+        border: none;
+        font-size: 1.2rem;
+        padding: 0.7rem 0.5rem;
+        cursor: pointer;
+        margin-top: 1rem;
+        &:hover {
+          background: rgb(240, 5, 5);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .intro {
+    height: 50vh;
+    nav {
+      justify-content: space-between;
+      padding: 1rem;
+      #logo {
+        width: 6rem;
+      }
+      #signin {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
