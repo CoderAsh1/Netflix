@@ -1,10 +1,12 @@
 import "./intro.scss";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import stranger from "../../assets/stranger.jpg";
 import tvImg from "../../assets/tv.png";
 import children from "../../assets/children.png";
+import strangerposter from "../../assets/stranger-poster.png";
+import downloadGif from "../../assets/download-icon.gif";
 import { TfiWorld } from "react-icons/tfi";
-import { AiOutlineRight } from "react-icons/ai";
 import { accordionData } from "../../accordionData";
 import Accordion from "../../components/Accordion/Accordion";
 
@@ -21,7 +23,9 @@ const Intro = () => {
               <option value="English">Hindi</option>
             </select>
           </div>
-          <button id="signin">Sign In</button>
+          <Link to="/login">
+            <button id="signin">Sign In</button>
+          </Link>
         </nav>
         <main>
           <h1>Unlimited movies, TV shows and more.</h1>
@@ -30,11 +34,10 @@ const Intro = () => {
             Ready to watch? Enter your email to create or restart your
             membership.
           </h3>
-          <form>
-            <input type="email" required placeholder="Enter Email" />
-            <button>
-              Get Started <AiOutlineRight />
-            </button>
+          <form className="form">
+            <input type="email" name="email" required />
+            <label htmlFor="email">Enter Email</label>
+            <button>Get Started &#62;</button>
           </form>
         </main>
       </section>
@@ -67,7 +70,22 @@ const Intro = () => {
               Save your favourites easily and always have something to watch.
             </h2>
           </div>
-          <img id="stranger" src={stranger} alt="tv" />
+          <div className="img_group">
+            <img id="stranger" src={stranger} alt="tv" />
+            <div className="download-status">
+              <img src={strangerposter} alt="strangerposter" />
+              <div>
+                <h3>Stranger Things</h3>
+                <p>Downloading...</p>
+              </div>
+              <img
+                src={downloadGif}
+                className="downloadGif"
+                alt="downloadGif"
+                width="50px"
+              />
+            </div>
+          </div>
         </section>
         {/* animated tv section */}
         <section className="feature">
@@ -108,18 +126,17 @@ const Intro = () => {
       <section className="accordion">
         <div className="title">
           <h1>Frequently Asked Questions</h1>
-          {accordionData.map((data) => (
-            <Accordion title={data.title} content={data.content} />
+          {accordionData.map((data, i) => (
+            <Accordion key={i} title={data.title} content={data.content} />
           ))}
         </div>
         <h2>
           Ready to watch? Enter your email to create or restart your membership.
         </h2>
-        <form id="lastform">
-          <input type="email" required placeholder="Enter Email" />
-          <button>
-            Get Started <AiOutlineRight />
-          </button>
+        <form id="lastform" className="form">
+          <input type="email" required />
+          <label htmlFor="email">Enter Email</label>
+          <button>Get Started &#62;</button>
         </form>
       </section>
     </>
