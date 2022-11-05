@@ -1,19 +1,40 @@
+section:not(.intro) {
+  border-top: 1px solid rgb(180, 13, 13);
+}
+
 .intro {
   height: 100vh;
-  width: 100vw;
   color: white;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.7) 0,
+    transparent 20%,
+    rgba(0, 0, 0, 0.7) 90%
+  );
+  &::before {
+    content: "";
+    background: url(../../assets/hero-img.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+    height: 100vh;
+    z-index: -1;
+  }
   nav {
     background: transparent;
     display: flex;
     padding: 1.7rem 3rem;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
-    width: 100vw;
     z-index: 100;
     #logo {
-      width: 8rem;
       margin-right: auto;
+      width: 8rem;
     }
     .select {
       background: transparent;
@@ -46,72 +67,91 @@
   #hero_img {
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 99.99%;
     height: 100%;
     object-fit: cover;
-    z-index: -3;
-  }
-  .transparent {
-    position: absolute;
-    top: 0;
-    height: inherit;
-    width: inherit;
-    background: transparent;
-    background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.7) 0,
-      transparent 10%,
-      rgba(0, 0, 0, 0.7) 70%
-    );
-    z-index: -2;
-  }
-  main {
     z-index: -1;
+    opacity: 0.5;
+  }
+  // .transparent {
+  //   // position: absolute;
+  //   top: 0;
+  //   display: none;
+  //   height: inherit;
+  //   width: inherit;
+  //   background: transparent;
+  //   background-image: linear-gradient(
+  //     0deg,
+  //     rgba(0, 0, 0, 0.7) 0,
+  //     transparent 10%,
+  //     rgba(0, 0, 0, 0.7) 70%
+  //   );
+  //   z-index: -1;
+  // }
+  main {
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
     align-items: center;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
+    height: 86vh;
     top: 0;
     text-align: center;
     h1 {
       max-width: 600px;
     }
-    .input {
-      display: flex;
+    form {
+      height: 4rem;
+      background: #000;
+      width: 30rem;
       input {
-        height: 3.2rem;
-        font-size: 1.2rem;
-        width: 50%;
-        padding: 0 0.4rem;
+        width: 70%;
+        height: 100%;
+        border: none;
         outline: none;
+        padding: 0.4rem;
+        font-size: 1rem;
       }
       button {
-        height: 3.2rem;
-        background: red;
         display: inline-flex;
         align-items: center;
-        color: white;
-        gap: 0.3rem;
+        width: 30%;
+        height: 100%;
         border: none;
-        font-size: 1.2rem;
-        padding: 0.7rem 0.5rem;
-        cursor: pointer;
-        margin-top: 1rem;
-        &:hover {
-          background: rgb(240, 5, 5);
-        }
+        font-size: 1rem;
+        background: red;
+        color: white;
+        font-weight: bold;
+        padding: 1rem;
+      }
+    }
+  }
+}
+.features {
+  .feature {
+    display: flex;
+    padding: 0 5rem;
+    align-items: center;
+    .title {
+      h1 {
+        margin-bottom: 2rem;
+      }
+    }
+    .tv {
+      position: relative;
+      video {
+        position: absolute;
+        top: 6rem;
+        left: 5rem;
+        z-index: -1;
       }
     }
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 875px) {
   .intro {
-    height: 50vh;
     nav {
       justify-content: space-between;
       padding: 1rem;
@@ -120,6 +160,36 @@
       }
       #signin {
         padding: 0.5rem;
+      }
+    }
+    main {
+      form {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        height: 3rem;
+      }
+    }
+  }
+  .features {
+    .feature {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      #stranger {
+        height: 13rem;
+      }
+      .tv {
+        img {
+          width: 20rem;
+        }
+        video {
+          width: 15rem;
+          top: 3rem;
+          left: 2.5rem;
+        }
       }
     }
   }
