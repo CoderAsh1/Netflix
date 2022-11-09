@@ -7,6 +7,16 @@
 body {
   background: rgb(0, 0, 0);
   color: white;
+  scrollbar-color: red;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 h1 {
   font-size: 50px;
@@ -23,8 +33,15 @@ h3 {
 button {
   cursor: pointer;
 }
-
-@media (max-width: 600px) {
+a {
+  color: white;
+}
+marquee {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.26);
+  font-weight: bold;
+}
+@media (max-width: 875px) {
   h1 {
     font-weight: 500;
     font-size: 30px;

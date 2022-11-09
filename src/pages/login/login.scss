@@ -3,7 +3,7 @@
 }
 .login {
   .login-form {
-    margin: 3rem auto;
+    margin: 1rem auto;
     background: rgba(0, 0, 0, 0.521);
     display: flex;
     flex-direction: column;
@@ -13,33 +13,42 @@
     max-width: 30rem;
     border-radius: 0.4rem;
     h1 {
-      font-weight: 500;
+      font-weight: 200 !important;
     }
     label:not(.checkbox) {
       color: gray;
       position: absolute;
       transition: all 0.2s;
+      pointer-events: none;
       &:nth-child(3) {
-        top: 10.5rem;
-        left: 4rem;
+        top: 10.3rem;
+        left: 3.5rem;
       }
       &:nth-child(5) {
-        top: 14.5rem;
-        left: 4rem;
+        top: 14.3rem;
+        left: 3.5rem;
+      }
+      &:nth-child(7) {
+        top: 18.3rem;
+        left: 3.5rem;
       }
     }
-    .email:focus ~ label {
+    .email:focus + label,
+    .email:valid + label {
       &:nth-child(3) {
-        top: 9.8rem;
-        left: 3.3rem;
+        top: 9.6rem;
         font-size: 0.7rem;
       }
     }
-    .password:focus ~ label {
-      &:nth-child(5) {
-        top: 12.5rem;
-        left: 4rem;
-      }
+    .password:focus + label,
+    .password:valid + label {
+      top: 13.5rem;
+      font-size: 0.7rem;
+    }
+    .c_password:focus ~ label,
+    .c_password:valid ~ label {
+      top: 17.6rem;
+      font-size: 0.7rem;
     }
 
     input:not(#check) {
@@ -49,7 +58,12 @@
       border-radius: 0.3rem;
       outline: none;
       color: white;
-      padding: 1rem 1rem 0 1rem;
+      font-size: 14px;
+      padding: 0.5rem;
+      padding-top: 1rem;
+    }
+    #check {
+      margin-right: 0.3rem;
     }
     button {
       background: red;
@@ -59,6 +73,9 @@
       border: none;
       border-radius: 0.3rem;
       margin-top: 2rem;
+      &:hover {
+        background: rgb(197, 6, 6);
+      }
     }
     .rememberMe {
       width: 100%;
@@ -71,17 +88,47 @@
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 875px) {
   .login {
+    margin-top: 33px;
     .login-form {
       margin: 0 auto;
-      width: 80%;
+      width: 97%;
       h2 {
         align-self: flex-start;
       }
-    }
-    button {
-      width: 100%;
+      label:not(.checkbox) {
+        color: gray;
+        position: absolute;
+        transition: all 0.2s;
+        pointer-events: none;
+        &:nth-child(3) {
+          top: 9rem;
+        }
+        &:nth-child(5) {
+          top: 13rem;
+        }
+        &:nth-child(7) {
+          top: 17rem;
+        }
+      }
+      .email:focus + label,
+      .email:valid + label {
+        &:nth-child(3) {
+          top: 134.4px;
+          font-size: 0.7rem;
+        }
+      }
+      .password:focus + label,
+      .email:valid + label {
+        top: 196.8px;
+        font-size: 11.2px;
+      }
+      .c_password:focus ~ label,
+      .c_password:valid ~ label {
+        top: 16.3rem;
+        font-size: 0.7rem;
+      }
     }
   }
 }

@@ -10,7 +10,11 @@ const Accordion = ({ title, content }) => {
         <h2>{title}</h2>
         <h2>{isActive ? "-" : "+"}</h2>
       </div>
-      {isActive && <div className="accordion-content">{content}</div>}
+      {isActive && (
+        <div className="accordion-content" data-aos="fade-in">
+          {content}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import "./intro.scss";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/logo.png";
 import stranger from "../../assets/stranger.jpg";
 import tvImg from "../../assets/tv.png";
 import children from "../../assets/children.png";
@@ -13,7 +13,7 @@ import Accordion from "../../components/Accordion/Accordion";
 const Intro = () => {
   return (
     <>
-      <section className="intro">
+      <section className="intro" data-aos="fade-in">
         <nav>
           <img id="logo" src={logo} alt="logo" />
           <div className="select">
@@ -43,7 +43,7 @@ const Intro = () => {
       </section>
       {/* animated tv section */}
       <section className="features">
-        <section className="feature">
+        <section className="feature" data-aos="fade-right">
           <div className="title">
             <h1>Enjoy on your TV.</h1>
             <h2>
@@ -63,7 +63,7 @@ const Intro = () => {
           </div>
         </section>
         {/* stranger things section */}
-        <section className="feature">
+        <section className="feature" data-aos="fade-left">
           <div className="title">
             <h1>Download your shows to watch offline.</h1>
             <h2>
@@ -88,7 +88,7 @@ const Intro = () => {
           </div>
         </section>
         {/* animated tv section */}
-        <section className="feature">
+        <section className="feature" data-aos="fade-right">
           <div className="title">
             <h1>Watch everywhere.</h1>
             <h2>
@@ -111,7 +111,7 @@ const Intro = () => {
           </div>
         </section>
         {/* children section */}
-        <section className="feature">
+        <section className="feature" data-aos="fade-left">
           <div className="title">
             <h1>Create profiles for children.</h1>
             <h2>
@@ -123,7 +123,7 @@ const Intro = () => {
         </section>
       </section>
       {/* accordian */}
-      <section className="accordion">
+      <section className="accordion" data-aos="fade-up">
         <div className="title">
           <h1>Frequently Asked Questions</h1>
           {accordionData.map((data, i) => (
